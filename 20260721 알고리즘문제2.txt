@@ -1,0 +1,63 @@
+20260721 알고리즘문제2 
+
+제미나이 해답 코드 뜯기
+ 	
+
+public class Solution {
+    public int solution(int a, int b) {
+        
+        // a와 b를 문자열로 변환하여 이어 붙인 뒤 정수로 변환합니다.
+        String strA = String.valueOf(a);
+        String strB = String.valueOf(b);
+        int plusAnswer = Integer.parseInt(strA + strB);
+        
+        int multipliedAnswer = 2 * a * b;
+        
+        int answer = 0;
+        
+        // 문제 조건: 같을 경우 a ⊕ b (plusAnswer)를 반환하므로 이상(>=) 조건을 사용합니다.
+        if (multipliedAnswer > plusAnswer) {
+            answer = multipliedAnswer;
+        } else {
+            answer = plusAnswer;
+        }
+        
+        return answer;
+    }
+}
+
+
+이 문제를 풀이할때 내가 구현하기 어려웠던 파트는 plusAnswer 부분이다
+이외는 전부 구현하였다, 하지만 해당 파트는 내가 아무리 고민한다고 해도 내가 직접 제대로 배우지 않은 부분이라는 느낌이와 제미나이의 도움을 받게되었다.
+
+코드설명을해보자 
+
+우리는 2 91 을 받았다면
+
+그것을 291로 저장하게끔해야하는 상황인것이다.
+이경우에 맨처음 접근은 나는 a의 값에따라 if문으로 해당 a에게 10 100 1000 10000을 곱해줘 앞에 박아두고 b를받으려했지만 이것은 말이안되는게 b의값에따라 자릿수가 달라지기에 
+그게 불가능하다는 생각이 들었다
+
+거기에 제미나이가 준 해결책은 애초에 문자열 +기에 가장 가까운 연산이기에
+
+문자열 +를 시키고 그걸 다시 integer 데이터타입으로 변환시키는 발상이였다 . ㄱ
+
+(사실 윗트라이 이전에 문자열을 먼저 더해보고 문자열과 int간의 비교를 했는데 데이터타입이 다르기에 당연히 에러를 뿜어냈다)
+
+아무튼 제미나이 코드를 설명해보자면
+
+문자열로 방을 두개 파고 strA strB 
+
+그리고 그뒤 해당 방에 String.valueOf() 함수를 사용해
+
+제시된 a값과 b값을 문자열형식으로 변환해 넣어준다.
+
+그뒤 plusAnswer은 해당 두 a b를 문자열형식으로 더하기한것이기에
+
+int plusAnswer = Integer.ParseInt(strA+strB);
+
+Integer.ParseInt(strA+strB); 를 사용해 문자열형식의 연산결과값을 다시 int값으로 변환한후 해당 plusAnswer에 삽입했다.
+
+아래는 전부 내가 이해하고 코드구현한부분이다.
+
+
