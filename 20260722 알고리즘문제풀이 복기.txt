@@ -1,0 +1,35 @@
+20260722 알고리즘문제풀이 복기
+
+
+오늘 내가 만난 문제중에 
+
+문자열 자체를 90프로 돌려 출력하는 문제가 있었다
+
+
+이경우
+
+
+
+import java.utill.Scanner;
+
+public class Solution {
+	public static void main (String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String a = sc.next();
+	
+	for( int i=0;i<a.length();I++){
+		System.out.println(a.charAt(i));}
+}
+	}
+
+이 코드를 내가 작성했는데
+
+여기서 90도 돌리는 구상이 어려웠고 
+새로운 메소드인 
+charAt을 배웠다.
+charAt(i)는 i인덱스칸의 문자열하나를 뽑아오는 메소드이다.
+이것을 이용해
+
+a.length() == a 문자열길이를 최댓값으로 놓고 for로 반복문을 돌려 \n 할필요없이 ( system.out.println 이기에 )
+하나씩 a.charAt(i)로 뽑아출력하면된다.
+
